@@ -1,0 +1,28 @@
+---
+import  Navmenu  from "./Navmenu.astro";
+import CartQuantity  from "../components/CartQuantity.astro";
+
+---
+
+<div
+  class={`flex h-16 items-center justify-between  border-b border-primary/20 w-full`}
+
+>
+  <div class="flex w-32 flex-initial flex-row items-center">
+    <h3 class="text-primary items-center pl-5 text-center text-2xl">
+      astro
+    </h3>
+  </div>
+  <Navmenu />
+  <div class="flex items-center justify-center pr-5 text-end text-primary">
+    <a
+      class="hover:text-primary/80 duration-250 transition-colors"
+      href="/cart"
+    >
+      cart
+    </a>
+    <div class="absolute mb-6 ml-8 text-sm">
+      <CartQuantity />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+---
+// CartQuantity.astro
+import { cartItems, type CartItemType } from "../../lib/stores/cart";
+---
+<div id="cart-quantity">
+</div>
+
+
+<script>
+  import { cartItems } from "../../lib/stores/cart";
+
+  const updateCartQuantity = () => {
+    const totalQuantity = cartItems.get().reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('cart-quantity').textContent = totalQuantity;
+  };
+
+  cartItems.subscribe(updateCartQuantity);
+
+  window.addEventListener('beforeunload', () => {
+    cartItems.unsubscribe(updateCartQuantity);
+  });
+</script>

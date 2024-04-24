@@ -1,0 +1,34 @@
+---
+// import { Product } from "@/lib/types";
+import AddToCart from "./AddToCart.tsx";
+
+// export interface Props {
+//   product: Product;
+// }
+
+const { product } = Astro.props;
+---
+
+<div class="mx-auto mt-24 flex max-w-3xl gap-12">
+  <div class="mb-6">
+    <img
+      src={product.image}
+      alt={product.name}
+      class="h-full w-96 rounded-t-lg object-cover"
+      width="500"
+      height="600"
+    />
+  </div>
+  <div class="flex h-[450px] w-96 flex-col justify-evenly gap-6 text-center">
+    <div>
+      <h1 class="mb-2 text-3xl font-bold">{product.name}</h1>
+      <p class="mb-4">{product.description}</p>
+    </div>
+    <div>
+      <span class="mb-4 block text-4xl font-bold">
+        {product.price} {product.currency}
+      </span>
+      <AddToCart product={product} client:load />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Cart from "../../components/Cart";
+//import { useStore } from '@nanostores/react';
+import { cartItems } from '../../../lib/stores/cart';
+---
+
+<Layout>
+  <main class="flex min-h-[calc(100vh-64px)] flex-col">
+    <Cart client:load />
+  </main>
+</Layout>
