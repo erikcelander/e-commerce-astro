@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { type CartItemType } from "../../lib/stores/cart";
 
 import CartItem from "./CartItem.tsx";

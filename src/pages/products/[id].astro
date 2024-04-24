@@ -8,7 +8,7 @@ export async function getStaticPaths() {
     .from('products')
     .select('id');
 
-  return products.map((product) => ({
+  return products!.map((product) => ({
     params: { id: product.id.toString() },
   }));
 }
@@ -20,7 +20,7 @@ const { data: product } = await supabaseClient
   .eq('id', id)
   .single();
 ---
-<Layout>
+<Layout title="Astro e-commerce product">
     <div class="flex w-full flex-col items-center justify-center">
         {product && <ProductPage product={product} />}
     </div>

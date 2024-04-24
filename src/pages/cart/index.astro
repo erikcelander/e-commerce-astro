@@ -1,11 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Cart from "../../components/Cart";
-//import { useStore } from '@nanostores/react';
-import { cartItems } from '../../../lib/stores/cart';
 ---
 
-<Layout>
+<Layout title="Astro e-commerce cart">
   <main class="flex min-h-[calc(100vh-64px)] flex-col">
     <Cart client:load />
   </main>

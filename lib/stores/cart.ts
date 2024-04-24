@@ -8,7 +8,6 @@ export type CartItemType = {
   quantity: number;
   image: string;
   description: string;
-  // Add other properties as needed
 };
 
 export const cartItems = persistentAtom<CartItemType[]>("cart", [], {
@@ -17,14 +16,12 @@ export const cartItems = persistentAtom<CartItemType[]>("cart", [], {
 });
 
 export function addToCart(product: CartItemType) {
-  console.log("product to add:", product);
   const currentItems = cartItems.get();
   const existingItemIndex = currentItems.findIndex(
     (item: CartItemType) => item.id === product.id,
   );
 
   if (existingItemIndex !== -1) {
-    // If the item exists, increase its quantity
     const updatedItems = currentItems.slice();
     updatedItems[existingItemIndex] = {
       ...updatedItems[existingItemIndex],
@@ -32,11 +29,8 @@ export function addToCart(product: CartItemType) {
     };
     cartItems.set(updatedItems);
   } else {
-    // If the item doesn't exist, add it to the cart
     cartItems.set([...currentItems, { ...product, quantity: 1 }]);
   }
-
-  console.log("cartItems:", cartItems.get());
 }
 
 export function removeFromCart(productId: string) {
