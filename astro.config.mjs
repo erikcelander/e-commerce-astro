@@ -9,6 +9,7 @@ dotenv.config();
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react()],
+  output: "server",
   vite: {
     define: {
       "process.env.PUBLIC_SUPABASE_URL": JSON.stringify(
